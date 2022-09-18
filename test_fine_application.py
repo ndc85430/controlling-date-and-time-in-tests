@@ -19,17 +19,17 @@ def today():
     return date(year=2022, month=10, day=1)
 
 
-def write(line):
-    write._output += f"{line}\n"
+def write_line_to_string(line):
+    write_line_to_string._output += f"{line}\n"
 
-write._output = ""
+write_line_to_string._output = ""
 
 class TestFineApplication(unittest.TestCase):
     def test_it_produces_a_report_of_the_fines_due(self):
-        FineApplication(get_items, today, write).run()
+        FineApplication(get_items, today, write_line_to_string).run()
 
         self.assertEqual(
-            write._output,
+            write_line_to_string._output,
             """Today is: 2022-10-01
             |
             |Fines due:

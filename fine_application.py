@@ -5,25 +5,25 @@ from loaned_item import LoanedItem
 
 
 class FineApplication:
-    def __init__(self, get_items, today, write):
+    def __init__(self, get_items, today, write_line):
         self.get_items = get_items
         self.today = today
-        self.write = write
+        self.write_line = write_line
 
     def run(self):
         items = self.get_items()
 
-        self.write(f"Today is: {self.today()}")
-        self.write("")
-        self.write("Fines due:")
-        self.write("")
+        self.write_line(f"Today is: {self.today()}")
+        self.write_line("")
+        self.write_line("Fines due:")
+        self.write_line("")
 
-        self.write("Title,Due date,Fine")
+        self.write_line("Title,Due date,Fine")
 
         for item in items:
             fine = fine_for(item, self.today)
 
-            self.write(f"{item.title},{item.due_date},{fine}")
+            self.write_line(f"{item.title},{item.due_date},{fine}")
 
 
 if __name__ == "__main__":
