@@ -5,12 +5,8 @@ from fines import fine_for
 from loaned_item import LoanedItem
 
 
-class FixedCalendar:
-    def today(self):
-        return date(year=2022, month=9, day=17)
-
-
-calendar = FixedCalendar()
+def today():
+    return date(year=2022, month=9, day=17)
 
 
 class TestFineFor(unittest.TestCase):
@@ -21,7 +17,7 @@ class TestFineFor(unittest.TestCase):
             due_date=date(year=2022, month=9, day=17)
         )
 
-        fine = fine_for(item, calendar)
+        fine = fine_for(item, today)
 
         self.assertEqual(fine, 0)
 
@@ -32,7 +28,7 @@ class TestFineFor(unittest.TestCase):
             due_date=date(year=2022, month=9, day=18)
         )
 
-        fine = fine_for(item, calendar)
+        fine = fine_for(item, today)
 
         self.assertEqual(fine, 0)
 
@@ -43,7 +39,7 @@ class TestFineFor(unittest.TestCase):
             due_date=date(year=2022, month=9, day=15)
         )
 
-        fine = fine_for(item, calendar)
+        fine = fine_for(item, today)
 
         self.assertEqual(fine, 2)
 

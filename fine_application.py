@@ -1,6 +1,5 @@
 from datetime import date
 
-from calendar import Calendar
 from fines import fine_for
 from loaned_item import LoanedItem
 
@@ -23,11 +22,9 @@ print()
 print("Fines due: ")
 print()
 
-calendar = Calendar()
-
 print("Title,Due date,Fine")
 
 for item in items:
-    fine = fine_for(item, calendar)
+    fine = fine_for(item, date.today)
 
     print(f"{item.title},{item.due_date},{fine}")
