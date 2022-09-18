@@ -26,19 +26,20 @@ class FineApplication:
             self.write_line(f"{item.title},{item.due_date},{fine}")
 
 
-if __name__ == "__main__":
-    def get_items():
-        return [
-            LoanedItem(
-                title="Clean Code",
-                author="Robert C. Martin",
-                due_date=date(year=2022, month=9, day=1)
-            ),
-            LoanedItem(
-                title="Test-Driven Development: By Example",
-                author="Kent Beck",
-                due_date=date(year=2022, month=10, day=5)
-            )
-        ]
+def get_items():
+    return [
+        LoanedItem(
+            title="Clean Code",
+            author="Robert C. Martin",
+            due_date=date(year=2022, month=9, day=1)
+        ),
+        LoanedItem(
+            title="Test-Driven Development: By Example",
+            author="Kent Beck",
+            due_date=date(year=2022, month=10, day=5)
+        )
+    ]
 
+
+if __name__ == "__main__":
     FineApplication(get_items, date.today, print).run()
